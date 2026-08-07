@@ -6,8 +6,8 @@ import io
 
 from inference import SKURecognizer
 
-MODEL_PATH = "full_arcface_model.pt"
-YOLO_PATH  = "yolo_weights.pt"
+MODEL_PATH = "models/full_arcface_model.pt"
+YOLO_PATH  = "models/yolo_weights.pt"
 
 ml = {}
 
