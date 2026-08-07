@@ -11,8 +11,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY inference.py api.py ./
 
-# HF Spaces runs as a non-root user; give it a writable HOME
-# for torch hub cache, ultralytics config, etc.
 ENV HOME=/app
 RUN mkdir -p /app/.cache && chmod -R 777 /app
 
