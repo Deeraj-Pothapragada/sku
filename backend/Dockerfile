@@ -10,9 +10,15 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY inference.py api.py ./
+
+# HF Spaces runs as a non-root user; give it a writable HOME
+# for torch hub cache, ultralytics config, etc.
+ENV HOME=/app
+RUN mkdir -p /app/.cache && chmod -R 777 /app
+
 RUN python -c "import torch; torch.hub.load('facebookresearch/dinov2', 'dinov2_vitb14_reg')"
 
 COPY models/full_arcface_model.pt models/yolo_weights.pt ./models/
 
-EXPOSE 8000
-CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]
+EXPOSE 7860
+CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "7860"]
