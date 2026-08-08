@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 
-const API_URL = "https://fluffy-ducks-fetch.loca.lt/"; // <-- paste your tunnel URL here
+const API_URL = "https://deerajp-sku-recog.hf.space/"; // <-- paste your tunnel URL here
 
 export default function App() {
   const [imgUrl, setImgUrl] = useState(null);
